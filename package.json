@@ -15,6 +15,7 @@
   "author": "tiero",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.18.0"
+    "axios": "^0.18.0",
+    "bitcoinjs-lib": "^3.3.2"
   }
 }
