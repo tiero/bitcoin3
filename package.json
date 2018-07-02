@@ -12,7 +12,12 @@
     "utxo",
     "crypto"
   ],
+  "homepage": "https://github.com/tiero/bitcoin3#readme",
   "author": "tiero",
+  "repository": {
+    "url": "https://github.com/tiero/bitcoin3.git",
+    "type": "git"
+  },
   "license": "MIT",
   "dependencies": {
     "axios": "^0.18.0",
