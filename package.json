@@ -1,6 +1,6 @@
 {
   "name": "bitcoin3",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Manage Bitcoin utxo  ",
   "main": "index.js",
   "scripts": {
