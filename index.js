@@ -53,6 +53,9 @@ class Bitcoin3 {
     } 
   }
 
+
+  // If you want to set a conservative limit, 181 bytes per input + 34 bytes per output + 10 bytes seems like a good bet
+  // https://bitcointalk.org/index.php?topic=124302.msg1336553#msg1336553
   getTxSize(vin, vout) {
     return vin * 180 + vout * 34 + 10 + vin
   }
