@@ -4,7 +4,7 @@
   "description": "Manage Bitcoin utxo  ",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test/index.js"
   },
   "keywords": [
     "bitcoin",
@@ -21,6 +21,9 @@
   "license": "MIT",
   "dependencies": {
     "axios": "^0.18.0",
-    "bitcoinjs-lib": "^3.3.2"
+    "bitcoinjs-lib": "^4.0.1"
+  },
+  "devDependencies": {
+    "assert": "^1.4.1"
   }
 }

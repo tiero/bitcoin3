@@ -65,6 +65,7 @@ All getters returns a **Promise**
 ### Utils
 * [isValidAddress()](#btc3isValidAddress)
 * [sendTransaction()](#btc3sendTransaction)
+* [createMultisig()](#btc3createMultisig)
 
 
 ## API
@@ -236,6 +237,34 @@ btc3.sendTransaction(dest, amount)
 ```
 
 ***
+
+#### btc3.createMultisig
+
+##### Parameters
+
+1. `Array` - Array of public keys in hex format
+2. `m` - treshold needed for sign a valid transaction 
+
+##### Returns
+
+- `String` - Return a m-of-n P2SH Multisig Address 
+
+##### Example
+
+```js
+
+const keys = [
+      '032b4c06c06c3ec0b7fa29519dfa5aae193ee2cc35ca127f29f14ec605d62fb63d',
+      '0216c92abe433106491bdeb4a261226f20f5a4ac86220cc6e37655aac6bf3c1f2a',
+      '039e05da8b8ea4f9868ecebb25998c7701542986233f4401799551fbecf316b18f'
+]
+const m = 2
+
+const address = btc3.createMultisig(keys, 2)
+console.log(address)
+// testnet: 2N2VHjejHUCbJSRnoVyoesXMDsaiUey5ptp
+//mainnet 3Aw5fuoFrk5xEeAFprBnFaMxfEWJp6vqNX
+```
 
 
 

@@ -32,10 +32,12 @@ class Bitcoin3 {
     let keyPair
     try {
       keyPair = this.bitcoin.ECPair.fromWIF(privateKey, NETWORKS[this.network].object)
-    } catch(e) {
+    } catch (e) {
+      console.log(e)
       throw ERROR_MESSAGE.validAddress
     }
-    const address = keyPair.getAddress()
+
+    const { address } = bitcoin.payments.p2pkh({ pubkey: keyPair.publicKey, network: NETWORKS[this.network].object })
 
     this.defaultAccount = Object.seal({
       address,
@@ -44,13 +46,24 @@ class Bitcoin3 {
     })
   }
 
+  createMultisig(publicKeys, m) {
+    const network = NETWORKS[this.network].object
+    const pubkeys = publicKeys.map((hex) => Buffer.from(hex, 'hex'))
+    const { address } = bitcoin.payments.p2sh({
+      network, 
+      redeem: bitcoin.payments.p2ms({ m, pubkeys, network})
+    })
+
+    return address
+  }
+
   isValidAddress(address) {
     try {
       this.bitcoin.address.toOutputScript(address, NETWORKS[this.network].object)
       return true
     } catch (e) {
       return false
-    } 
+    }
   }
 
 
